@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Feedback Form</title> 
+    <link rel="stylesheet" href="./style2.css"> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h1>Feedback Form</h1> 
+        <form id="feedbackForm"> 
+            <input type="text" id="name" placeholder="Your Name" required> 
+            <input type="email" id="email" placeholder="Your Email" required> 
+            <select id="rating" required> 
+                <option value="" disabled selected>Rate your experience</option> 
+                <option value="1">1 - Poor</option> 
+                <option value="2">2 - Fair</option> 
+                <option value="3">3 - Good</option> 
+                <option value="4">4 - Very Good</option> 
+                <option value="5">5 - Excellent</option> 
+            </select> 
+            <textarea id="message" placeholder="Your Feedback" required></textarea> 
+            <button type="submit"><a href="./index1.html" style="text-decoration: none; color: white;">Submit Feedback</a></button> 
+        </form> 
+    </div> 
+ 
+    <script src="./app.js" type="module"></script> 
+</body> 
+</html> 

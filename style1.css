@@ -1,0 +1,314 @@
+/* --- Reset and Fonts --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+  overflow-x: hidden;
+  color: #333;
+}
+
+/* --- Navbar --- */
+.nav-bar {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #333;
+  border-bottom: rgb(233, 96, 96) 2px solid;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #333;
+  cursor: pointer;
+  border-bottom: rgb(233, 96, 96) 2px solid;
+}
+
+/* Hamburger Menu - Removed Checkbox */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/* --- Container --- */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Column Backgrounds */
+.column {
+  width: 30%;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  background: #e3f2fd;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+#todo-column {
+  background: linear-gradient(to right, #F8D7B0, #F4A261, #f07f63);
+}
+#in-progress-column {
+  background: linear-gradient(to right, #F8D7B0, #F4A261, #f07f63);
+}
+#done-column {
+  background: linear-gradient(to right, #F8D7B0, #F4A261, #f07f63);
+}
+
+.column:hover {
+  transform: translateY(-8px);
+}
+
+/* --- Task Cards --- */
+.task-card {
+ background-color: #FFF6E5;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.4s;
+}
+
+.task-card:hover {
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.task-card h4 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.task-card p {
+  font-size: 14px;
+  color: #777;
+}
+
+/* --- Buttons --- */
+button {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  display: inline-block;
+  text-align: center;
+}
+
+button:hover {
+  background: linear-gradient(270deg, #feb47b, #ff7e5f);
+  color: #333;
+}
+
+/* Move buttons */
+.move-btn {
+  width: 100%;
+}
+
+/* Edit and Delete buttons inside card */
+.edit-delete-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.edit-btn, .delete-btn {
+  background: #6c757d;
+  min-width: 100px;
+  padding: 10px 15px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  background: #5a6268;
+  color: #fff;
+}
+
+/* --- Modal (Chat Box) --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 8px 30px rgba(0,0,0,0.3);
+}
+
+.modal input, .modal textarea, .modal select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.modal input:focus, .modal textarea:focus, .modal select:focus {
+  border-color: #ff7e5f;
+}
+
+.modal button {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: #fff;
+  width: 100%;
+}
+
+/* --- Mobile and Tablet Responsiveness --- */
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgb(145, 29, 29);
+    width: 100%;
+    padding: 20px;
+  }
+
+  .nav-links li a {
+    color: #fff;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    display: block;
+  }
+
+  .nav-links li {
+    margin-bottom: 20px;
+  }
+
+  .nav-links a:hover {
+    cursor: pointer;
+    color: rgb(184, 94, 94);
+    border-bottom: rgb(233, 96, 96) 2px solid;
+  }
+
+  .nav-links button {
+    color: #fff;
+    border: 2px solid rgb(233, 96, 96);
+    background-color: rgb(177, 72, 72);
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* Container */
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .column {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  /* Column Hover Effect */
+  .column:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  }
+
+  /* Task Card Hover Effect */
+  .task-card:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Buttons */
+  button {
+    padding: 10px 15px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+
+  button:hover {
+    background: linear-gradient(270deg, #feb47b, #ff7e5f);
+    color: #333;
+  }
+
+  .edit-delete-buttons {
+    justify-content: space-around;
+  }
+
+  /* Mobile and Tablet Button Hover Effect */
+  .move-btn:hover, .edit-btn:hover, .delete-btn:hover {
+    background: linear-gradient(270deg, #feb47b, #ff7e5f);
+    color: #333;
+  }
+
+  /* Mobile Responsiveness for Logo */
+  .logo {
+    font-size: 20px; /* Reduced font size for mobile view */
+  }
+}
+
+
