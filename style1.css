@@ -9,6 +9,7 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
   overflow-x: hidden;
+  overflow-y: hidden;
   color: #333;
 }
 
@@ -125,6 +126,13 @@ body {
 #done-column h2:hover {
   color: #333;
   border-bottom: rgb(233, 96, 96) 2px solid;
+}
+#todo-tasks,
+#in-progress-tasks,
+#done-tasks {
+  max-height: 400px;   
+  overflow-y: auto;       
+  padding-right: 5px;      
 }
 
 /* --- Task Cards --- */
