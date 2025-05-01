@@ -99,7 +99,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   }
   
   // Create task card
- function createTaskCard(task, id) {
+function createTaskCard(task, id) {
   const card = document.createElement('div');
   card.classList.add('task-card');
 
@@ -110,7 +110,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   description.textContent = task.description;
 
   const assigned = document.createElement('p');
-  assigned.textContent = Assigned to: ${task.assignedTo};
+  assigned.textContent = `Assigned to: ${task.assignedTo}`;
 
   card.appendChild(title);
   card.appendChild(description);
@@ -146,18 +146,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
     buttonContainer.appendChild(moveToInProgressBtn);
   }
 
-  // Common Edit and Delete buttons
+  // Edit button (common to all)
   const editBtn = document.createElement('button');
   editBtn.textContent = 'Edit';
   editBtn.style.backgroundColor = '#f39c12';
   editBtn.addEventListener('click', () => openEditModal(id, task));
+  buttonContainer.appendChild(editBtn);
 
+  // Delete button (common to all)
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   deleteBtn.style.backgroundColor = '#e74c3c';
   deleteBtn.addEventListener('click', () => deleteTask(id));
-
-  buttonContainer.appendChild(editBtn);
   buttonContainer.appendChild(deleteBtn);
 
   card.appendChild(buttonContainer);
