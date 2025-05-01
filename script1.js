@@ -100,7 +100,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   
   // Create task card
  
-   function createTaskCard(task, id) {
+  function createTaskCard(task, id) {
     const card = document.createElement('div');
     card.classList.add('task-card');
 
@@ -113,7 +113,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
     const assigned = document.createElement('p');
     assigned.textContent = `Assigned to: ${task.assignedTo}`;
 
-    // Only add "Move to In Progress" button if the task is not in "In Progress"
+    // Append text elements first
+    card.appendChild(title);
+    card.appendChild(description);
+    card.appendChild(assigned);
+
+    // Buttons
     if (task.status !== 'In Progress') {
         const moveToInProgressBtn = document.createElement('button');
         moveToInProgressBtn.textContent = 'Move to In Progress';
@@ -135,9 +140,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
     deleteBtn.style.backgroundColor = '#e74c3c';
     deleteBtn.addEventListener('click', () => deleteTask(id));
 
-    card.appendChild(title);
-    card.appendChild(description);
-    card.appendChild(assigned);
     card.appendChild(moveToDoneBtn);
     card.appendChild(editBtn);
     card.appendChild(deleteBtn);
