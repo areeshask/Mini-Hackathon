@@ -100,60 +100,69 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   
   // Create task card
  function createTaskCard(task, id) {
-    const card = document.createElement('div');
-    card.classList.add('task-card');
+  const card = document.createElement('div');
+  card.classList.add('task-card');
 
-    // Create text content
-    const title = document.createElement('h4');
-    title.textContent = task.title;
+  const title = document.createElement('h4');
+  title.textContent = task.title;
 
-    const description = document.createElement('p');
-    description.textContent = task.description;
+  const description = document.createElement('p');
+  description.textContent = task.description;
 
-    const assigned = document.createElement('p');
-    assigned.textContent = `Assigned to: ${task.assignedTo}`;
+  const assigned = document.createElement('p');
+  assigned.textContent = Assigned to: ${task.assignedTo};
 
-    // Append text content first
-    card.appendChild(title);
-    card.appendChild(description);
-    card.appendChild(assigned);
+  card.appendChild(title);
+  card.appendChild(description);
+  card.appendChild(assigned);
 
-    // Create a container div for buttons (optional but helpful for styling)
-    const buttonContainer = document.createElement('div');
-    buttonContainer.classList.add('button-container');
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('button-container');
 
-    // Conditionally add "Move to In Progress"
-    if (task.status !== 'In Progress') {
-        const moveToInProgressBtn = document.createElement('button');
-        moveToInProgressBtn.textContent = 'Move to In Progress';
-        moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
-        buttonContainer.appendChild(moveToInProgressBtn);
-    }
+  // Buttons based on status
+  if (task.status === 'To Do') {
+    const moveToInProgressBtn = document.createElement('button');
+    moveToInProgressBtn.textContent = 'Move to In Progress';
+    moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
+    buttonContainer.appendChild(moveToInProgressBtn);
 
-    // Add other buttons
     const moveToDoneBtn = document.createElement('button');
     moveToDoneBtn.textContent = 'Move to Done';
     moveToDoneBtn.addEventListener('click', () => moveTask(id, 'Done'));
-
-    const editBtn = document.createElement('button');
-    editBtn.textContent = 'Edit';
-    editBtn.style.backgroundColor = '#f39c12';
-    editBtn.addEventListener('click', () => openEditModal(id, task));
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Delete';
-    deleteBtn.style.backgroundColor = '#e74c3c';
-    deleteBtn.addEventListener('click', () => deleteTask(id));
-
-    // Append remaining buttons to button container
     buttonContainer.appendChild(moveToDoneBtn);
-    buttonContainer.appendChild(editBtn);
-    buttonContainer.appendChild(deleteBtn);
+  }
 
-    // Finally, append the button container to the card
-    card.appendChild(buttonContainer);
+  if (task.status === 'In Progress') {
+    const moveToDoneBtn = document.createElement('button');
+    moveToDoneBtn.textContent = 'Move to Done';
+    moveToDoneBtn.addEventListener('click', () => moveTask(id, 'Done'));
+    buttonContainer.appendChild(moveToDoneBtn);
+  }
 
-    return card;
+  if (task.status === 'Done') {
+    const moveToInProgressBtn = document.createElement('button');
+    moveToInProgressBtn.textContent = 'Move to In Progress';
+    moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
+    buttonContainer.appendChild(moveToInProgressBtn);
+  }
+
+  // Common Edit and Delete buttons
+  const editBtn = document.createElement('button');
+  editBtn.textContent = 'Edit';
+  editBtn.style.backgroundColor = '#f39c12';
+  editBtn.addEventListener('click', () => openEditModal(id, task));
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Delete';
+  deleteBtn.style.backgroundColor = '#e74c3c';
+  deleteBtn.addEventListener('click', () => deleteTask(id));
+
+  buttonContainer.appendChild(editBtn);
+  buttonContainer.appendChild(deleteBtn);
+
+  card.appendChild(buttonContainer);
+
+  return card;
 }
   
    
