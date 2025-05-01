@@ -3,15 +3,15 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,sig
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js"; 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBNIUk5SLHuRjd8adp-vkpMnuKlsPmqj7w",
-    authDomain: "sign-up-login-form-cc6ff.firebaseapp.com",
-    databaseURL: "https://sign-up-login-form-cc6ff-default-rtdb.firebaseio.com",
-    projectId: "sign-up-login-form-cc6ff",
-    storageBucket: "sign-up-login-form-cc6ff.firebasestorage.app",
-    messagingSenderId: "913552980541",
-    appId: "1:913552980541:web:6a67328d1ecf559b934854",
-    measurementId: "G-9FXZ80M8QV"
-  };
+  apiKey: "AIzaSyCsCdI05k_NpIkNpYbOfu9LLW_c2TNDvn4",
+  authDomain: "hackathon-27902.firebaseapp.com",
+  databaseURL: "https://hackathon-27902-default-rtdb.firebaseio.com",
+  projectId: "hackathon-27902",
+  storageBucket: "hackathon-27902.firebasestorage.app",
+  messagingSenderId: "866556674602",
+  appId: "1:866556674602:web:e9237d4989bb6e34d17953",
+  measurementId: "G-5D1287756S"
+};
  
 // Initialize Firebase 
 const app = initializeApp(firebaseConfig); 
