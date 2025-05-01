@@ -103,7 +103,6 @@ async function loadTasks() {
   });
 }
 
-// Create task card (with conditional buttons)
 function createTaskCard(task, id) {
   const card = document.createElement('div');
   card.classList.add('task-card');
@@ -117,7 +116,12 @@ function createTaskCard(task, id) {
   const assigned = document.createElement('p');
   assigned.textContent = Assigned to: ${task.assignedTo};
 
-  // Buttons
+  // Always append basic info
+  card.appendChild(title);
+  card.appendChild(description);
+  card.appendChild(assigned);
+
+  // Conditionally add buttons
   if (task.status === 'To Do') {
     const moveToInProgressBtn = document.createElement('button');
     moveToInProgressBtn.textContent = 'Move to In Progress';
@@ -136,20 +140,19 @@ function createTaskCard(task, id) {
   editBtn.textContent = 'Edit';
   editBtn.style.backgroundColor = '#f39c12';
   editBtn.addEventListener('click', () => openEditModal(id, task));
+  card.appendChild(editBtn);
 
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   deleteBtn.style.backgroundColor = '#e74c3c';
   deleteBtn.addEventListener('click', () => deleteTask(id));
-
-  card.appendChild(title);
-  card.appendChild(description);
-  card.appendChild(assigned);
-  card.appendChild(editBtn);
   card.appendChild(deleteBtn);
 
   return card;
 }
+
+
+
 
 // Move task
 async function moveTask(id, newStatus) {
