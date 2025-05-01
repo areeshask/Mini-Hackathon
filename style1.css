@@ -122,13 +122,26 @@ body {
 }
 
 .task-card h4 {
-  margin-bottom: 10px;
+  color: #d35400;            
   font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #fff3e0;  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .task-card p {
-  font-size: 14px;
-  color: #777;
+  color: #555;                    
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 10px 10px 10px;         
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff8f0;      
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(211, 84, 0, 0.2); 
 }
 
 /* --- Buttons --- */
