@@ -107,30 +107,18 @@ body {
   transform: translateY(-8px);
 }
 
-.column h2 {
-  background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradient background */
-  color: #fff;
-  padding: 12px 20px;
-  font-size: 24px; /* Slightly larger font size */
-  font-weight: bold;
-  text-align: center;
-  border-radius: 12px;
-  margin-bottom: 20px; /* Space between heading and tasks */
-  text-transform: uppercase; /* Make text uppercase for emphasis */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
 
-#todo-column h2 {
-  background: linear-gradient(to right, #f8d7b0, #f4a261); /* Unique gradient for "To Do" */
-}
-
-#in-progress-column h2 {
-  background: linear-gradient(to right, #f8d7b0, #f4a261, #f07f63); /* Unique gradient for "In Progress" */
-}
-
+#todo-column h2,
+#in-progress-column h2,
 #done-column h2 {
-  background: linear-gradient(to right, #6b8e23, #98fb98); /* Green gradient for "Done" */
+  color: #333; /* neutral dark gray */
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: capitalize;
 }
+
 /* --- Task Cards --- */
 .task-card {
  background-color: #FFF6E5;
