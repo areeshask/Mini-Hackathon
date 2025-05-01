@@ -1,17 +1,18 @@
 // Import Firebase modules 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js"; 
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.4.0/firebasedatabase.js"; 
- 
-// Firebase configuration 
-const firebaseConfig = { 
-  apiKey: "AIzaSyAhsN00tKhh1uAyo2TstI9tpGD_y-qvMP8", 
-  authDomain: "fir-database-cca32.firebaseapp.com", 
-  projectId: "fir-database-cca32", 
-  storageBucket: "fir-database-cca32.firebasestorage.app", 
-  messagingSenderId: "327223621970", 
-  appId: "1:327223621970:web:dff822ee3e47b956c9e28b", 
-  measurementId: "G-CHR22VXN96" 
-}; 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCsCdI05k_NpIkNpYbOfu9LLW_c2TNDvn4",
+  authDomain: "hackathon-27902.firebaseapp.com",
+  databaseURL: "https://hackathon-27902-default-rtdb.firebaseio.com",
+  projectId: "hackathon-27902",
+  storageBucket: "hackathon-27902.firebasestorage.app",
+  messagingSenderId: "866556674602",
+  appId: "1:866556674602:web:e9237d4989bb6e34d17953",
+  measurementId: "G-5D1287756S"
+};
+
  
 // Initialize Firebase 
 const app = initializeApp(firebaseConfig); 
