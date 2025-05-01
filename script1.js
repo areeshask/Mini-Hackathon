@@ -99,11 +99,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   }
   
   // Create task card
- 
-  function createTaskCard(task, id) {
+ function createTaskCard(task, id) {
     const card = document.createElement('div');
     card.classList.add('task-card');
 
+    // Create text content
     const title = document.createElement('h4');
     title.textContent = task.title;
 
@@ -113,19 +113,24 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
     const assigned = document.createElement('p');
     assigned.textContent = `Assigned to: ${task.assignedTo}`;
 
-    // Append text elements first
+    // Append text content first
     card.appendChild(title);
     card.appendChild(description);
     card.appendChild(assigned);
 
-    // Buttons
+    // Create a container div for buttons (optional but helpful for styling)
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+
+    // Conditionally add "Move to In Progress"
     if (task.status !== 'In Progress') {
         const moveToInProgressBtn = document.createElement('button');
         moveToInProgressBtn.textContent = 'Move to In Progress';
         moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
-        card.appendChild(moveToInProgressBtn);
+        buttonContainer.appendChild(moveToInProgressBtn);
     }
 
+    // Add other buttons
     const moveToDoneBtn = document.createElement('button');
     moveToDoneBtn.textContent = 'Move to Done';
     moveToDoneBtn.addEventListener('click', () => moveTask(id, 'Done'));
@@ -140,13 +145,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
     deleteBtn.style.backgroundColor = '#e74c3c';
     deleteBtn.addEventListener('click', () => deleteTask(id));
 
-    card.appendChild(moveToDoneBtn);
-    card.appendChild(editBtn);
-    card.appendChild(deleteBtn);
+    // Append remaining buttons to button container
+    buttonContainer.appendChild(moveToDoneBtn);
+    buttonContainer.appendChild(editBtn);
+    buttonContainer.appendChild(deleteBtn);
+
+    // Finally, append the button container to the card
+    card.appendChild(buttonContainer);
 
     return card;
 }
   
+   
   // Move task between columns
   async function moveTask(id, newStatus) {
     try {
