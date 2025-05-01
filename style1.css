@@ -111,12 +111,20 @@ body {
 #todo-column h2,
 #in-progress-column h2,
 #done-column h2 {
-  color: #333; /* neutral dark gray */
+  color: #fff;
   font-size: 24px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 10px;
   text-transform: capitalize;
+  transition: color 0.3s ease;
+}
+
+#todo-column h2:hover,
+#in-progress-column h2:hover,
+#done-column h2:hover {
+  color: #333;
+  border-bottom: rgb(233, 96, 96) 2px solid;
 }
 
 /* --- Task Cards --- */
