@@ -85,6 +85,10 @@ body {
 
 /* Column Backgrounds */
 .column {
+  max-height: 500px;
+  overflow:hidden;
+  display: flex;
+  flex-direction: column;
   width: 30%;
   padding: 20px;
   border-radius: 15px;
@@ -127,11 +131,13 @@ body {
   color: #333;
   border-bottom: rgb(233, 96, 96) 2px solid;
 }
+
 #todo-tasks,
 #in-progress-tasks,
 #done-tasks {
   max-height: 400px;   
-  overflow-y: auto;       
+  overflow-y: scroll;
+  overflow-x: hidden;     
   padding-right: 5px;      
 }
 
