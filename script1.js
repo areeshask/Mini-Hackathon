@@ -110,7 +110,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
     description.textContent = task.description;
   
     const assigned = document.createElement('p');
-    assigned.textContent = Assigned to: ${task.assignedTo};
+    assigned.textContent = `Assigned to: ${task.assignedTo}`;
   
     const moveToInProgressBtn = document.createElement('button');
     moveToInProgressBtn.textContent = 'Move to In Progress';
