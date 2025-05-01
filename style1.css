@@ -301,9 +301,12 @@ button:hover {
     display: block;
   }
 
-  /* Container */
+  /* Container - Center the content */
   .container {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column;  /* Stack the content vertically */
+    align-items: center;     /* Horizontally center the content */
+    justify-content: center; /* Vertically center the content */
     padding: 10px;
   }
 
