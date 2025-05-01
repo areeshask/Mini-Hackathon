@@ -99,47 +99,51 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   }
   
   // Create task card
-  function createTaskCard(task, id) {
+ 
+   function createTaskCard(task, id) {
     const card = document.createElement('div');
     card.classList.add('task-card');
-  
+
     const title = document.createElement('h4');
     title.textContent = task.title;
-  
+
     const description = document.createElement('p');
     description.textContent = task.description;
-  
+
     const assigned = document.createElement('p');
     assigned.textContent = `Assigned to: ${task.assignedTo}`;
-  
-    const moveToInProgressBtn = document.createElement('button');
-    moveToInProgressBtn.textContent = 'Move to In Progress';
-    moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
-  
+
+    // Only add "Move to In Progress" button if the task is not in "In Progress"
+    if (task.status !== 'In Progress') {
+        const moveToInProgressBtn = document.createElement('button');
+        moveToInProgressBtn.textContent = 'Move to In Progress';
+        moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
+        card.appendChild(moveToInProgressBtn);
+    }
+
     const moveToDoneBtn = document.createElement('button');
     moveToDoneBtn.textContent = 'Move to Done';
     moveToDoneBtn.addEventListener('click', () => moveTask(id, 'Done'));
-  
+
     const editBtn = document.createElement('button');
     editBtn.textContent = 'Edit';
     editBtn.style.backgroundColor = '#f39c12';
     editBtn.addEventListener('click', () => openEditModal(id, task));
-  
+
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
     deleteBtn.style.backgroundColor = '#e74c3c';
     deleteBtn.addEventListener('click', () => deleteTask(id));
-  
+
     card.appendChild(title);
     card.appendChild(description);
     card.appendChild(assigned);
-    card.appendChild(moveToInProgressBtn);
     card.appendChild(moveToDoneBtn);
     card.appendChild(editBtn);
     card.appendChild(deleteBtn);
-  
+
     return card;
-  }
+}
   
   // Move task between columns
   async function moveTask(id, newStatus) {
