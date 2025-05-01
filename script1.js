@@ -99,10 +99,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   }
   
   // Create task card
+// Create task card
 function createTaskCard(task, id) {
   const card = document.createElement('div');
   card.classList.add('task-card');
 
+  // Create text content
   const title = document.createElement('h4');
   title.textContent = task.title;
 
@@ -112,54 +114,47 @@ function createTaskCard(task, id) {
   const assigned = document.createElement('p');
   assigned.textContent = `Assigned to: ${task.assignedTo}`;
 
+  // Append text content first
   card.appendChild(title);
   card.appendChild(description);
   card.appendChild(assigned);
 
+  // Create a container div for buttons (optional but helpful for styling)
   const buttonContainer = document.createElement('div');
   buttonContainer.classList.add('button-container');
 
-  // Buttons based on status
-  if (task.status === 'To Do') {
-    const moveToInProgressBtn = document.createElement('button');
-    moveToInProgressBtn.textContent = 'Move to In Progress';
-    moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
-    buttonContainer.appendChild(moveToInProgressBtn);
-
-    const moveToDoneBtn = document.createElement('button');
-    moveToDoneBtn.textContent = 'Move to Done';
-    moveToDoneBtn.addEventListener('click', () => moveTask(id, 'Done'));
-    buttonContainer.appendChild(moveToDoneBtn);
-  }
-
-  if (task.status === 'In Progress') {
-    const moveToDoneBtn = document.createElement('button');
-    moveToDoneBtn.textContent = 'Move to Done';
-    moveToDoneBtn.addEventListener('click', () => moveTask(id, 'Done'));
-    buttonContainer.appendChild(moveToDoneBtn);
-  }
-
-  if (task.status === 'Done') {
+  // *Important Fix*: Only add "Move to In Progress" if task is not in In Progress
+  if (task.status !== 'In Progress' && task.status !== 'Done') {
     const moveToInProgressBtn = document.createElement('button');
     moveToInProgressBtn.textContent = 'Move to In Progress';
     moveToInProgressBtn.addEventListener('click', () => moveTask(id, 'In Progress'));
     buttonContainer.appendChild(moveToInProgressBtn);
   }
 
-  // Edit button (common to all)
+  // *Important Fix*: Add "Move to Done" only if task is not in Done
+  if (task.status !== 'Done') {
+    const moveToDoneBtn = document.createElement('button');
+    moveToDoneBtn.textContent = 'Move to Done';
+    moveToDoneBtn.addEventListener('click', () => moveTask(id, 'Done'));
+    buttonContainer.appendChild(moveToDoneBtn);
+  }
+
+  // Add other buttons: Edit and Delete
   const editBtn = document.createElement('button');
   editBtn.textContent = 'Edit';
   editBtn.style.backgroundColor = '#f39c12';
   editBtn.addEventListener('click', () => openEditModal(id, task));
-  buttonContainer.appendChild(editBtn);
 
-  // Delete button (common to all)
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   deleteBtn.style.backgroundColor = '#e74c3c';
   deleteBtn.addEventListener('click', () => deleteTask(id));
+
+  // Append remaining buttons to button container
+  buttonContainer.appendChild(editBtn);
   buttonContainer.appendChild(deleteBtn);
 
+  // Finally, append the button container to the card
   card.appendChild(buttonContainer);
 
   return card;
