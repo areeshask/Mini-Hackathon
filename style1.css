@@ -145,22 +145,28 @@ body {
 }
 
 /* --- Buttons --- */
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Keeps layout intact if buttons overflow */
+  margin-top: 10px;
+}
+
 button {
   background: linear-gradient(90deg, #ff7e5f, #feb47b);
   color: #fff;
   border: none;
   border-radius: 30px;
-  padding: 12px 20px;
-  font-size: 16px;
+  padding: 8px 16px; /* Reduced padding */
+  font-size: 14px; /* Smaller font size */
   font-weight: bold;
-  margin: 10px 5px;
+  margin: 5px 3px; /* Reduced margin to minimize space */
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 140px;
+  min-width: 120px; /* Reduced minimum width */
   display: inline-block;
   text-align: center;
 }
-
 button:hover {
   background: linear-gradient(270deg, #feb47b, #ff7e5f);
   color: #333;
